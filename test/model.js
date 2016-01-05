@@ -42,6 +42,22 @@ describe('Model', () => {
       assert.equal(car.get('year'), 1992);
     });
 
+
+    // Errors
+    it('should fail to get or set inexistant property', () => {
+      assert.throws(() => car.get('inexistant'), Error);
+      assert.throws(() => car.set('inexistant', 123), Error);
+    });
+
+    it('should fail to get or set empty property', () => {
+      assert.throws(() => car.get(''), Error);
+      assert.throws(() => car.set('', 123), Error);
+    });
+
+    it('should fail to set property if value is empty', () => {
+      assert.throws(() => car.set('year'), Error);
+    });
+
     it('should fail to construct because property if of wrong type', () => {
       assert.throws(() => new Car({ year: '1990' }), Error);
     });
