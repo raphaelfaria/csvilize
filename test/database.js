@@ -1,20 +1,20 @@
 import assert from 'assert';
-import Connection from '../lib/connection';
+import Database from '../lib/database';
 import Schema from '../lib/schema';
 import Model from '../lib/model';
 
-describe('Connection', () => {
+describe('Database', () => {
   describe('constructor', () => {
     it('should succeed', () => {
-      assert.ok(new Connection('data'));
+      assert.ok(new Database('data'));
     });
 
     it('should fail', () => {
-      assert.throws(() => new Connection(), Error);
+      assert.throws(() => new Database(), Error);
     });
 
     it('should create its own db schema type', () => {
-      const db = new Connection('data');
+      const db = new Database('data');
       assert.ok(Schema.isPrototypeOf(db.Schema));
     });
   });
@@ -23,7 +23,7 @@ describe('Connection', () => {
     let db;
 
     beforeEach(() => {
-      db = new Connection('data');
+      db = new Database('data');
     });
 
     it('should create and store a model', () => {
