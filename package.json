@@ -1,5 +1,5 @@
 {
-  "name": "csv-schema",
+  "name": "csvilize",
   "version": "0.0.0",
   "description": "",
   "homepage": "",
@@ -13,7 +13,7 @@
   ],
   "main": "dist/index.js",
   "keywords": [],
-  "repository": "raphaelfaria/csv-schema",
+  "repository": "raphaelfaria/csvilize",
   "devDependencies": {
     "gulp": "^3.6.0",
     "gulp-eslint": "^1.0.0",
