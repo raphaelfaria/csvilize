@@ -11,7 +11,7 @@ describe('Model', () => {
 
   it('should compile properly', () => {
     assert.equal(Car.name, 'Car');
-    assert.ok(new Car instanceof Model);
+    assert.ok(new Car({ year: 1990 }) instanceof Model);
   });
 
   it('should not allow instantiation from Model', () => {
