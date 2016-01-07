@@ -42,6 +42,17 @@ describe('Model', () => {
       assert.equal(car.get('year'), 1992);
     });
 
+    it('should convert to string properly', () => {
+      const stringRegex =
+        /\d\,(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)\,){2}\d{4}/;
+      const carString = car.toString();
+      assert.ok(stringRegex.test(carString));
+    });
+
+    it('should get the correct size in bytes', () => {
+      assert.equal(car.getSize(), 56);
+    });
+
 
     // Errors
     it('should fail to get or set inexistant property', () => {
