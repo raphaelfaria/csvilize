@@ -2,13 +2,13 @@ import assert from 'assert';
 import Schema from '../lib/schema';
 import Model from '../lib/model';
 
-describe('Schema', () => {
-  describe('constructor', () => {
+describe('Schema', function () {
+  describe('constructor', function () {
     function newSchema(obj) {
       return new Schema(obj);
     }
 
-    it('should succeed', () => {
+    it('should succeed', function () {
       const schema = {
         str: String,
         num: Number,
@@ -24,7 +24,7 @@ describe('Schema', () => {
       assert.ok(newSchema(schema));
     });
 
-    it('should fail', () => {
+    it('should fail', function () {
       const schema = {
         str: String,
         err: Error,
@@ -34,7 +34,7 @@ describe('Schema', () => {
     });
   });
 
-  describe('methods', () => {
+  describe('methods', function () {
     let schema;
 
     beforeEach(() => {
@@ -51,7 +51,7 @@ describe('Schema', () => {
       });
     });
 
-    it('should get the default value for a property', () => {
+    it('should get the default value for a property', function () {
       assert.equal(schema.getDefault('str'), null);
       assert.equal(schema.getDefault('num'), null);
       assert.equal(schema.getDefault('bool'), false);
@@ -64,12 +64,12 @@ describe('Schema', () => {
       assert.equal(schema.getDefault('detailed'), 'blabla');
     });
 
-    it('should get type of property', () => {
+    it('should get type of property', function () {
       assert.equal(schema.getType('str'), String);
       assert.equal(schema.getType('num'), Number);
     });
 
-    it('should get type name of property', () => {
+    it('should get type name of property', function () {
       assert.equal(schema.getTypeName('str'), 'String');
       assert.equal(schema.getTypeName('num'), 'Number');
     });
